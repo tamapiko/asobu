@@ -4,17 +4,69 @@
 <head>
   <title>Chat Room</title>
   <style>
-    ul { list-style-type: none; margin: 0; padding: 0; }
-    li { padding: 8px; margin-bottom: 2px; background-color: #f1f1f1; }
-    input { padding: 10px; width: 80%; }
-    button { padding: 10px; }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f6fa;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .chat-container {
+      width: 90%;
+      max-width: 600px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0 20px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    li {
+      padding: 10px;
+      margin-bottom: 5px;
+      background-color: #e1f5fe;
+      border-radius: 5px;
+    }
+    form {
+      display: flex;
+      padding: 10px;
+      border-top: 1px solid #ccc;
+    }
+    input {
+      flex: 1;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #1e88e5;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1565c0;
+    }
   </style>
 </head>
 <body>
-  <ul id="messages"></ul>
-  <form id="form" action="">
-    <input id="input" autocomplete="off" /><button>Send</button>
-  </form>
+  <div class="chat-container">
+    <ul id="messages"></ul>
+    <form id="form" action="">
+      <input id="input" autocomplete="off" /><button>Send</button>
+    </form>
+  </div>
 
   <script src="/socket.io/socket.io.js"></script>
   <script>
