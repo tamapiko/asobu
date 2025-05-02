@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>チャットルーム</title>
+  <title>Chat Room</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -77,7 +77,8 @@
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       if (input.value) {
-        socket.emit('chat message', input.value);
+        var room = 'default'; // Replace with actual room logic
+        socket.emit('chat message', input.value, room);
         input.value = '';
       }
     });
