@@ -1,95 +1,63 @@
-
-```html
 <!DOCTYPE html>
 <html>
 <head>
-  <title>チャットルーム</title>
+  <title>Game Zone</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #f5f6fa;
-      margin: 0;
+      background-color: #f0f0f0;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
       height: 100vh;
-    }
-    .chat-container {
-      width: 80%;
-      max-width: 800px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
-    }
-    ul {
-      list-style-type: none;
       margin: 0;
-      padding: 0 20px;
-      max-height: 400px;
-      overflow-y: auto;
     }
-    li {
-      padding: 10px;
-      margin-bottom: 5px;
-      background-color: #e1f5fe;
-      border-radius: 5px;
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
     }
-    form {
+    .games-list {
       display: flex;
-      padding: 10px;
-      border-top: 1px solid #ccc;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-    input, button {
-      padding: 10px;
-      font-size: 14px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-    input {
-      flex: 1;
-      margin-right: 10px;
-    }
-    button {
-      background-color: #1e88e5;
-      color: white;
+    .game-item {
+      background-color: #fff;
+      padding: 15px;
+      margin: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
       cursor: pointer;
+      transition: transform 0.2s;
     }
-    button:hover {
-      background-color: #1565c0;
+    .game-item:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-  <div class="chat-container">
-    <ul id="messages"></ul>
-    <form id="form" action="">
-      <input id="input" autocomplete="off" placeholder="メッセージを入力" /><button>送信</button>
-    </form>
+  <h1>Welcome to Game Zone</h1>
+  <div class="games-list" id="gamesList">
+    <!-- Game items will be populated here -->
   </div>
 
-  <script src="/socket.io/socket.io.js"></script>
   <script>
-    var socket = io();
-    var form = document.getElementById('form');
-    var input = document.getElementById('input');
+    // Array of game names for demo purposes
+    const games = Array.from({ length: 50 }, (_, i) => `Game ${i + 1}`);
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      if (input.value) {
-        var room = 'default'; // 実際のルームロジックに置き換えてください
-        socket.emit('chat message', input.value, room);
-        input.value = '';
-      }
-    });
+    // Reference to the games container
+    const gamesList = document.getElementById('gamesList');
 
-    socket.on('chat message', function(msg) {
-      var item = document.createElement('li');
-      item.textContent = msg;
-      document.getElementById('messages').appendChild(item);
-      window.scrollTo(0, document.body.scrollHeight);
+    // Populate the games list
+    games.forEach(game => {
+      const gameItem = document.createElement('div');
+      gameItem.classList.add('game-item');
+      gameItem.textContent = game;
+      gameItem.onclick = () => alert(`Launching ${game}... (Replace with actual game logic)`);
+      gamesList.appendChild(gameItem);
     });
   </script>
 </body>
 </html>
-```
