@@ -31,9 +31,16 @@
       background-color: #7cb342;
     }
   </style>
+  <script>
+    document.addEventListener('keydown', function(event) {
+      if (event.ctrlKey && event.altKey && event.key === 'Enter') {
+        alert('問題: 5 + 3 = ?');
+      }
+    });
+  </script>
 </head>
 <body>
-  <h1>簡単なゲーム1</h1>
+  <h1>勉強広場のアクティビティ</h1>
   <button onclick="alert('ゲームスタート！')">スタート</button>
 </body>
 </html>
