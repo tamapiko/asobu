@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ゲーム2</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #e0f7fa;
+    }
+    h1 {
+      color: #333;
+    }
+    button {
+      padding: 10px 30px;
+      font-size: 18px;
+      cursor: pointer;
+      border: none;
+      background-color: #ff4081;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #f50057;
+    }
+    #score {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <h1>クリックゲーム</h1>
+  <button id="clickButton">クリックしてポイントを稼ぐ</button>
+  <div id="score">スコア: 0</div>
+  
+  <script>
+    let score = 0;
+    const scoreDisplay = document.getElementById('score');
+    const clickButton = document.getElementById('clickButton');
+
+    clickButton.addEventListener('click', () => {
+      score++;
+      scoreDisplay.textContent = `スコア: ${score}`;
+    });
+  </script>
+</body>
+</html>
+

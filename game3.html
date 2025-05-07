@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ゲーム3</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #ffe0b2;
+    }
+    h1 {
+      color: #333;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      background-color: #ff9800;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #fb8c00;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <h1>計算ゲーム</h1>
+  <button onclick="calculateResult()">計算</button>
+  <div id="result">結果: 15 + 5 = ?</div>
+
+  <script>
+    function calculateResult() {
+      document.getElementById('result').textContent = '結果: 15 + 5 = 20';
+    }
+  </script>
+</body>
+</html>
+
