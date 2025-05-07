@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <title>Game Zone</title>
+  <meta charset="UTF-8">
+  <title>ゲームゾーン</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -38,14 +39,14 @@
   </style>
 </head>
 <body>
-  <h1>Welcome to Game Zone</h1>
+  <h1>ゲームゾーンへようこそ</h1>
   <div class="games-list" id="gamesList">
     <!-- Game items will be populated here -->
   </div>
 
   <script>
     // Array of game names for demo purposes
-    const games = Array.from({ length: 50 }, (_, i) => `Game ${i + 1}`);
+    const games = Array.from({ length: 50 }, (_, i) => `ゲーム ${i + 1}`);
 
     // Reference to the games container
     const gamesList = document.getElementById('gamesList');
@@ -55,7 +56,10 @@
       const gameItem = document.createElement('div');
       gameItem.classList.add('game-item');
       gameItem.textContent = game;
-      gameItem.onclick = () => alert(`Launching ${game}... (Replace with actual game logic)`);
+      gameItem.onclick = () => {
+        const gameUrl = `${game.replace(/\s+/g, '').toLowerCase()}.html`;
+        window.location.href = gameUrl;
+      };
       gamesList.appendChild(gameItem);
     });
   </script>
